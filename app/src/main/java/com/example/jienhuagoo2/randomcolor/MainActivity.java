@@ -1,8 +1,10 @@
 package com.example.jienhuagoo2.randomcolor;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +23,7 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
     public TextView textB;
     public TextView rgb;
     public View colorBlock;
+    public Vibrator vb;
     @Override
     public void onClick(View v) {
         change(v);
@@ -37,6 +40,7 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
         btn = (Button)findViewById(R.id.button);
         btn.setOnClickListener(this);
         colorBlock.setOnLongClickListener(this);
+        vb = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
     }
 
 
@@ -77,6 +81,7 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
 
     @Override
     public boolean onLongClick(View v) {
+        vb.vibrate(500);
         rgb.setTextSize(30);
         rgb.setText(String.format("%s%x%x%x","#",r,g,b));
         return false;
