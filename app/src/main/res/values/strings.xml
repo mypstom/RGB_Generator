@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RandomColor</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="generateColor">Generate RGB Color!</string>
+    <string name="R">R : ?</string>
+    <string name="B">B : ?</string>
+</resources>
