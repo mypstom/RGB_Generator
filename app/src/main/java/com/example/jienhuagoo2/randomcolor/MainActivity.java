@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -21,6 +22,7 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
     public TextView textB;
     public TextView rgb;
     public View colorBlock;
+    public RadioGroup radios;
     @Override
     public void onClick(View v) {
         change(v);
@@ -37,6 +39,7 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
         btn = (Button)findViewById(R.id.button);
         btn.setOnClickListener(this);
         colorBlock.setOnLongClickListener(this);
+        radios= (RadioGroup)findViewById(R.id.radioGroup);
     }
 
 
@@ -66,9 +69,15 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
     public void change(View v){
 
         Random ran = new Random();
-        r = ran.nextInt(256);
-        g = ran.nextInt(256);
-        b = ran.nextInt(256);
+        if(radios.getCheckedRadioButtonId() != R.id.radioButton) {
+            r = ran.nextInt(256);
+        }
+        if(radios.getCheckedRadioButtonId() != R.id.radioButton2){
+            g = ran.nextInt(256);
+        }
+        if(radios.getCheckedRadioButtonId() != R.id.radioButton3) {
+            b = ran.nextInt(256);
+        }
         textR.setText(String.format("%s%d", "R : " ,r));
         textG.setText(String.format("%s%d", "G : " ,g));
         textB.setText(String.format("%s%d", "B : " ,b));

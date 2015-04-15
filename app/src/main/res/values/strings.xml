@@ -6,4 +6,8 @@
     <string name="generateColor">Generate RGB Color!</string>
     <string name="R">R : ?</string>
     <string name="B">B : ?</string>
+    <string name="LockR">Lock R</string>
+    <string name="LockB">Lock B</string>
+    <string name="LockG">Lock G</string>
+    <string name="NONE">None</string>
 </resources>
