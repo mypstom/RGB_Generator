@@ -12,12 +12,14 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import java.util.Random;
 
 
-public class MainActivity extends Activity implements OnClickListener,OnLongClickListener {
+public class MainActivity extends Activity implements OnClickListener,OnLongClickListener,OnCheckedChangeListener {
+
     public TextView textR;
     public Button btn;
     public TextView textG;
@@ -43,6 +45,7 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
         btn.setOnClickListener(this);
         colorBlock.setOnLongClickListener(this);
         radios= (RadioGroup)findViewById(R.id.radioGroup);
+        radios.setOnCheckedChangeListener(this);
         vb = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
     }
 
@@ -94,5 +97,22 @@ public class MainActivity extends Activity implements OnClickListener,OnLongClic
         rgb.setTextSize(30);
         rgb.setText(String.format("%s%x%x%x","#",r,g,b));
         return false;
+    }
+
+
+    public void onCheckedChanged(RadioGroup r, int checkId){
+        rgb.setTextSize(12);
+        if(checkId == R.id.radioButton) {
+            rgb.setText(getString(R.string.NotChangeR));
+        }
+        if(checkId == R.id.radioButton2) {
+            rgb.setText(getString(R.string.NotChangeG));
+        }
+        if(checkId == R.id.radioButton3) {
+            rgb.setText(getString(R.string.NotChangeB));
+        }
+        if(checkId == R.id.radioButton4) {
+            rgb.setText("");
+        }
     }
 }

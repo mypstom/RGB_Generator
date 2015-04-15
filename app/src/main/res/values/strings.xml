@@ -10,4 +10,7 @@
     <string name="LockB">Lock B</string>
     <string name="LockG">Lock G</string>
     <string name="NONE">None</string>
+    <string name="NotChangeR">Red won\'t be changed.</string>
+    <string name="NotChangeG">Green won\'t be changed</string>
+    <string name="NotChangeB">blue won\'t be changed</string>
 </resources>
